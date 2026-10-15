@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowUpRight, Play } from "lucide-react";
 import Reveal from "@/app/components/Reveal";
-import Image from "next/image";
+import Flower from "@/app/components/Flower";
+import HeroImage from "@/app/components/HeroImage";
 import DrSimoyan from "@/public/assets/Dr.Simoyan.webp";
 
 const stats = [
@@ -54,19 +55,7 @@ export default function Home() {
             </div>
             <span className="badge">TEDx speaker</span>
           </div>
-          <div
-            data-reveal
-            className="relative aspect-4/5 overflow-hidden rounded-card bg-brand-100 md:aspect-auto md:h-[calc(100dvh-10rem)] md:max-h-176 md:min-h-112"
-          >
-            <Image
-              src={DrSimoyan}
-              alt="Portrait of Dr. Olapeju Simoyan"
-              fill
-              priority
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </div>
+          <HeroImage src={DrSimoyan} alt="Portrait of Dr. Olapeju Simoyan" />
         </section>
 
         {/* STATS */}
@@ -79,11 +68,19 @@ export default function Home() {
             </p>
           </div>
           <div data-reveal-group className="grid grid-cols-2 gap-3">
-            {stats.map((s) => (
-              <div key={s.label} className="tile">
-                <span className="eyebrow">{s.label}</span>
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className="tile group relative overflow-hidden"
+              >
+                <Flower
+                  tone={i}
+                  delay={i * 0.15}
+                  className="absolute -right-5 -top-5 size-20 md:-right-6 md:-top-6 md:size-28"
+                />
+                <span className="eyebrow relative max-w-[65%]">{s.label}</span>
                 <span
-                  className="tile-number"
+                  className="tile-number relative"
                   data-count={s.n}
                   data-suffix={s.suffix}
                 >
@@ -110,17 +107,20 @@ export default function Home() {
               All talks &amp; media <ArrowUpRight size={16} />
             </Link>
           </div>
-          {/* Swap for a YouTube/TED embed (iframe with aspect-video) */}
-          <Link
-            href="/media"
-            aria-label="Watch the TEDx talk"
+          <div
             data-reveal
-            className="group relative grid aspect-video place-items-center overflow-hidden rounded-card bg-ink"
+            className="relative aspect-video overflow-hidden rounded-card bg-ink"
           >
-            <span className="grid size-16 place-items-center rounded-full bg-brand-400 text-brand-950 transition-transform duration-300 ease-out-expo group-hover:scale-110">
-              <Play size={24} fill="currentColor" />
-            </span>
-          </Link>
+            <iframe
+              className="absolute inset-0 size-full"
+              src="https://www.youtube.com/embed/mJ3H4vsFpZI?si=DshO4edqabI1_OoX"
+              title="Dr. Olapeju Simoyan TEDx talk"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
         </section>
 
         {/* BOOKS */}

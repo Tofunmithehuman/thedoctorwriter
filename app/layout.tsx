@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import SmoothScroll from "@/app/components/SmoothScroll";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import "./globals.css";
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={jakarta.variable}>
       <body>
+        <SmoothScroll />
         <div className="page">
           <Navbar />
           <main className="flex flex-col gap-3">{children}</main>
