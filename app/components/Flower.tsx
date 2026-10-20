@@ -35,17 +35,49 @@ export default function Flower({ tone = 0, delay = 0, className = "" }: Props) {
         gsap
           .timeline({
             delay,
-            scrollTrigger: { trigger: svg.current, start: "top 92%", once: true },
+            scrollTrigger: {
+              trigger: svg.current,
+              start: "top 92%",
+              once: true,
+            },
           })
-          .from(svg.current, { scale: 0, rotation: -140, transformOrigin: "50% 50%", duration: 1.2, ease: "back.out(1.5)" })
-          .from(petals, { scale: 0, transformOrigin: "50% 100%", duration: 0.7, ease: "back.out(2)", stagger: 0.08 }, "<0.1");
+          .from(svg.current, {
+            scale: 0,
+            rotation: -140,
+            transformOrigin: "50% 50%",
+            duration: 1.2,
+            ease: "back.out(1.5)",
+          })
+          .from(
+            petals,
+            {
+              scale: 0,
+              transformOrigin: "50% 100%",
+              duration: 0.7,
+              ease: "back.out(2)",
+              stagger: 0.08,
+            },
+            "<0.1",
+          );
 
         // Idle: slow spin + gentle float
-        gsap.to(".spin", { rotation: 360, svgOrigin: "50 50", duration: 28 + tone * 6, ease: "none", repeat: -1 });
-        gsap.to(svg.current, { y: -5, duration: 2.4 + tone * 0.3, ease: "sine.inOut", yoyo: true, repeat: -1 });
+        gsap.to(svg.current?.querySelector(".spin") ?? [], {
+          rotation: 360,
+          svgOrigin: "50 50",
+          duration: 28 + tone * 6,
+          ease: "none",
+          repeat: -1,
+        });
+        gsap.to(svg.current, {
+          y: -5,
+          duration: 2.4 + tone * 0.3,
+          ease: "sine.inOut",
+          yoyo: true,
+          repeat: -1,
+        });
       });
     },
-    { scope: svg }
+    { scope: svg },
   );
 
   return (
@@ -53,11 +85,22 @@ export default function Flower({ tone = 0, delay = 0, className = "" }: Props) {
       aria-hidden
       className={`pointer-events-none block transition-transform duration-700 ease-out-expo group-hover:rotate-12 group-hover:scale-125 ${className}`}
     >
-      <svg ref={svg} viewBox="0 0 100 100" className="size-full overflow-visible">
+      <svg
+        ref={svg}
+        viewBox="0 0 100 100"
+        className="size-full overflow-visible"
+      >
         <g className="spin">
           {[0, 60, 120, 180, 240, 300].map((deg, i) => (
             <g key={deg} transform={`rotate(${deg} 50 50)`}>
-              <ellipse className="petal" cx="50" cy="27" rx="11" ry="21" fill={i % 2 ? b : a} />
+              <ellipse
+                className="petal"
+                cx="50"
+                cy="27"
+                rx="11"
+                ry="21"
+                fill={i % 2 ? b : a}
+              />
             </g>
           ))}
           <circle cx="50" cy="50" r="9" fill="#F5C26B" />

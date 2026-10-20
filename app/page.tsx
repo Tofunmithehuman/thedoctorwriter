@@ -3,6 +3,7 @@ import { ArrowUpRight, Play } from "lucide-react";
 import Reveal from "@/app/components/Reveal";
 import Flower from "@/app/components/Flower";
 import HeroImage from "@/app/components/HeroImage";
+import BooksShowcase from "@/app/components/Booksshowcase";
 import DrSimoyan from "@/public/assets/Dr.Simoyan.webp";
 
 const stats = [
@@ -109,7 +110,7 @@ export default function Home() {
           </div>
           <div
             data-reveal
-            className="relative aspect-video overflow-hidden rounded-card bg-ink"
+            className="relative aspect-video overflow-hidden rounded-sm bg-ink"
           >
             <iframe
               className="absolute inset-0 size-full"
@@ -124,66 +125,7 @@ export default function Home() {
         </section>
 
         {/* BOOKS */}
-        <section className="panel">
-          <div
-            data-reveal
-            className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
-          >
-            <div>
-              <span className="eyebrow">Books</span>
-              <h2 className="mt-2 text-h2">Explore the library</h2>
-            </div>
-            <Link href="/books" className="btn-primary self-start">
-              View all books <ArrowUpRight size={16} />
-            </Link>
-          </div>
-          <div data-reveal-group className="mt-8 grid gap-3 md:grid-cols-3">
-            {books.map((b) => (
-              <Link
-                key={b.title}
-                href="/books"
-                className="card-interactive flex flex-col gap-4"
-              >
-                <div className="aspect-3/4 rounded-btn bg-linear-to-br from-brand-200 to-brand-600" />
-                <h3 className="card-title">{b.title}</h3>
-                <p className="text-sm text-muted">{b.text}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* NEWSLETTER */}
-        <section className="panel-brand grid items-center gap-6 md:grid-cols-2 md:gap-12">
-          <div data-reveal>
-            <span className="eyebrow text-brand-800!">Newsletter</span>
-            <h2 className="mt-2 text-h2 text-brand-950!">
-              Medicine &amp; the Arts
-            </h2>
-            <p className="mt-2 max-w-[40ch] text-brand-900">
-              A monthly note of encouragement, new releases and upcoming talks.
-            </p>
-          </div>
-          {/* Connect to your email provider (Mailchimp, ConvertKit, etc.) */}
-          <form
-            data-reveal
-            className="flex flex-col gap-3 sm:flex-row"
-            action="#"
-          >
-            <label htmlFor="email" className="sr-only">
-              Email address
-            </label>
-            <input
-              id="email"
-              type="email"
-              required
-              placeholder="Email address"
-              className="input"
-            />
-            <button type="submit" className="btn-dark shrink-0">
-              Sign up
-            </button>
-          </form>
-        </section>
+        <BooksShowcase />
       </div>
     </Reveal>
   );

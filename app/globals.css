@@ -67,6 +67,13 @@
 
 /* ───────── BASE ───────── */
 @layer base {
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Edge, Brave, Safari */
+  }
   body {
     @apply bg-page text-ink font-sans antialiased;
     font-size: 0.9375rem;
@@ -176,8 +183,10 @@
   [data-reveal-group] > * {
     opacity: 0;
   }
+  [data-nav-item] {
+    opacity: 0;
+  }
   .hero-frame {
     clip-path: inset(100% 0 0 0 round 1rem);
   }
 }
-  
