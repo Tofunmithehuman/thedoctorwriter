@@ -7,7 +7,11 @@ import {
   Music,
   Stethoscope,
 } from "lucide-react";
-import Reveal from "@/app/components/Reveal";
+import Page from "@/app/components/Page";
+import Flower from "@/app/components/Flower";
+import HeroImage from "@/app/components/HeroImage";
+import { SITE, highlights, honors } from "@/app/lib/data";
+import DrSimoyan from "@/public/assets/Dr.Simoyan.webp";
 
 export const metadata: Metadata = { title: "About" };
 
@@ -15,53 +19,55 @@ const roles = [
   {
     icon: Stethoscope,
     title: "Physician",
-    text: "Caring for patients with compassion and listening first.",
+    text: "An addiction medicine and family medicine physician, and a full professor at Drexel University College of Medicine.",
   },
   {
     icon: BookOpen,
     title: "Author",
-    text: "Writing books that make health and history easier to understand.",
+    text: "Books on recovery, women in medicine, Christmas music history, nature and travel.",
   },
   {
     icon: Music,
     title: "Musician",
-    text: "Using song to teach, comfort and bring people together.",
+    text: "A pianist and ukulele player who records as Peju, The Doctor Singer.",
   },
   {
     icon: Camera,
     title: "Photographer",
-    text: "Capturing nature and everyday moments that tell a story.",
+    text: "Nature, travel and city photography that fills her books.",
   },
 ];
 
-const values = [
-  {
-    label: "Listen first",
-    text: "Every good story begins with paying attention.",
-  },
-  { label: "Teach with stories", text: "People remember what moves them." },
-  { label: "Create with care", text: "Work that is kind, clear and useful." },
+const facts = [
+  { label: "Full professor", value: "Drexel Psychiatry" },
+  { label: "Board certified", value: "Addiction & family medicine" },
+  { label: "Fulbright Specialist", value: "Nigeria, 2012–14" },
+  { label: "Humanism in Medicine Medal", value: "2022" },
 ];
 
 export default function About() {
   return (
-    <Reveal>
+    <Page>
       {/* INTRO */}
-      <section className="panel grid items-center gap-8 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
-        <div data-reveal-group className="flex flex-col items-start gap-5">
+      <section className="grid items-center gap-8 p-4 md:grid-cols-2 md:gap-12 md:p-6">
+        <div
+          data-reveal-group
+          className="flex flex-col items-start gap-5 md:py-6"
+        >
           <span className="eyebrow">About</span>
           <h1 className="text-display">
             Hello, I&rsquo;m Dr. Olapeju Simoyan.
           </h1>
           <p className="max-w-[52ch] text-base text-muted">
-            I&rsquo;m a physician, author and musician. My work sits where
-            medicine meets the arts: books that explain, songs that comfort and
-            talks that help people learn.
+            Known as The Doctor Writer and Doctor Singer, I bridge dentistry,
+            public health, family medicine and addiction medicine. I practice
+            addiction medicine and teach as a full professor in the Department
+            of Psychiatry at Drexel University College of Medicine.
           </p>
           <p className="max-w-[52ch] text-base text-muted">
-            {/* Replace with your real bio, 2-3 sentences */}
-            Add a short personal story here: where you trained, what drives you,
-            and why you write and perform.
+            Alongside medicine, I express myself through writing, music and
+            photography, because science and art together help us care for
+            people in fuller ways.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact" className="btn-primary">
@@ -71,14 +77,9 @@ export default function About() {
               See my books
             </Link>
           </div>
+          <span className="badge">MD · MPH · BDS · FAAFP · DFASAM</span>
         </div>
-        {/* Swap for <Image fill className="object-cover" /> */}
-        <div
-          data-reveal
-          className="relative aspect-4/5 overflow-hidden rounded-card bg-linear-to-br from-brand-200 via-brand-400 to-brand-700"
-          role="img"
-          aria-label="Portrait of Dr. Olapeju Simoyan"
-        />
+        <HeroImage src={DrSimoyan} alt="Portrait of Dr. Olapeju Simoyan" />
       </section>
 
       {/* ROLES */}
@@ -91,37 +92,85 @@ export default function About() {
           data-reveal-group
           className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {roles.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="card flex flex-col gap-4">
-              <span className="grid size-11 place-items-center rounded-btn bg-brand-400 text-brand-950">
+          {roles.map(({ icon: Icon, title, text }, i) => (
+            <div
+              key={title}
+              className="card group relative flex flex-col gap-4 overflow-hidden"
+            >
+              <Flower
+                tone={i}
+                delay={i * 0.15}
+                className="absolute -right-5 -top-5 size-20 md:-right-6 md:-top-6 md:size-24"
+              />
+              <span className="relative grid size-11 place-items-center rounded-btn bg-brand-400 text-brand-950">
                 <Icon size={20} strokeWidth={1.75} />
               </span>
-              <h3 className="card-title">{title}</h3>
-              <p className="text-sm text-muted">{text}</p>
+              <h3 className="card-title relative">{title}</h3>
+              <p className="relative text-sm text-muted">{text}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* APPROACH */}
+      {/* AT A GLANCE */}
       <section className="panel-soft grid gap-8 lg:grid-cols-2 lg:gap-12">
         <div data-reveal className="flex flex-col justify-end gap-4">
-          <span className="eyebrow">My approach</span>
+          <span className="eyebrow">At a glance</span>
           <p className="text-statement">
-            I believe stories are one of the strongest tools we have for
-            learning and for healing.
+            A physician-scholar whose work explores where medicine and the arts
+            meet.
           </p>
         </div>
-        <div
-          data-reveal-group
-          className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3"
-        >
-          {values.map((v) => (
-            <div key={v.label} className="tile">
-              <span className="eyebrow">{v.label}</span>
-              <p className="mt-6 text-sm">{v.text}</p>
+        <div data-reveal-group className="grid grid-cols-2 gap-3">
+          {facts.map((f) => (
+            <div key={f.label} className="tile">
+              <span className="eyebrow">{f.label}</span>
+              <span className="text-xl leading-snug tracking-tight">
+                {f.value}
+              </span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* CAREER + HONORS */}
+      <section className="panel grid gap-10 lg:grid-cols-2 lg:gap-14">
+        <div>
+          <div data-reveal>
+            <span className="eyebrow">Career highlights</span>
+            <h2 className="mt-2 text-h2">
+              Building programs that help people heal.
+            </h2>
+          </div>
+          <ul data-reveal-group className="mt-6 flex flex-col">
+            {highlights.map((h) => (
+              <li
+                key={h}
+                className="border-b border-line py-3 text-sm text-muted"
+              >
+                {h}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div data-reveal>
+            <span className="eyebrow">Honors &amp; awards</span>
+            <h2 className="mt-2 text-h2">
+              Recognized for service and humanism.
+            </h2>
+          </div>
+          <ul data-reveal-group className="mt-6 flex flex-col">
+            {honors.map((h) => (
+              <li
+                key={h.text}
+                className="grid grid-cols-[5.5rem_1fr] gap-4 border-b border-line py-3 text-sm"
+              >
+                <span className="eyebrow pt-0.5">{h.year}</span>
+                <span className="text-muted">{h.text}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -135,10 +184,20 @@ export default function About() {
             Invite me to speak at your school, conference or event.
           </p>
         </div>
-        <Link href="/contact" className="btn-dark shrink-0">
-          Get in touch <ArrowUpRight size={16} />
-        </Link>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/contact" className="btn-dark shrink-0">
+            Get in touch <ArrowUpRight size={16} />
+          </Link>
+          <a
+            href={SITE.amazon}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary shrink-0 border-brand-950/20 bg-transparent"
+          >
+            Shop on Amazon <ArrowUpRight size={16} />
+          </a>
+        </div>
       </section>
-    </Reveal>
+    </Page>
   );
 }
