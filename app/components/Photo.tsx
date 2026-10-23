@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 /** Rounded photo with a lilac fallback. Pass positioning yourself: "relative ..." or "absolute inset-0". */
 export default function Photo({
@@ -8,7 +8,7 @@ export default function Photo({
   sizes = "(min-width: 768px) 50vw, 100vw",
   priority,
 }: {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   className?: string;
   sizes?: string;
@@ -22,7 +22,7 @@ export default function Photo({
         src={src}
         alt={alt}
         fill
-        unoptimized
+        unoptimized={typeof src === "string" && src.startsWith("http")}
         priority={priority}
         sizes={sizes}
         className="object-cover"

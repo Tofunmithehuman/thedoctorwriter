@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { StaticImageData } from "next/image";
 import Flower from "@/app/components/Flower";
 import Photo from "@/app/components/Photo";
 
@@ -14,7 +15,7 @@ export default function PageHero({
   title: ReactNode;
   text: string;
   actions?: ReactNode;
-  image?: { src: string; alt: string };
+  image?: { src: string | StaticImageData; alt: string };
 }) {
   return (
     <section className="panel grid items-center gap-8 overflow-hidden md:grid-cols-[1.15fr_0.85fr] md:gap-12">
