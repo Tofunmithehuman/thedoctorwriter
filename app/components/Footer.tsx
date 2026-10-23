@@ -58,7 +58,7 @@ export default async function Footer() {
       {/* Lilac glow (drifts slowly) */}
       <div
         aria-hidden
-        className="footer-glow-a pointer-events-none absolute -bottom-48 -right-[6%] h-136 w-[55vw] min-w-128 rounded-full"
+        className="footer-glow-a pointer-events-none absolute -bottom-48 right-[-6%] h-136 w-[55vw] min-w-lg rounded-full"
         style={{
           background:
             "radial-gradient(closest-side, rgba(226,173,242,0.85), rgba(201,133,222,0.4) 55%, transparent)",
@@ -66,7 +66,7 @@ export default async function Footer() {
       />
       <div
         aria-hidden
-        className="footer-glow-b pointer-events-none absolute -bottom-56 left-[8%] h-120 w-[45vw] min-w-112 rounded-full"
+        className="footer-glow-b pointer-events-none absolute -bottom-56 left-[8%] h-120 w-[45vw] min-w-md rounded-full"
         style={{
           background:
             "radial-gradient(closest-side, rgba(169,92,194,0.55), transparent)",

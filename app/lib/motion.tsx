@@ -38,7 +38,11 @@ export function useReveal<T extends HTMLElement>() {
                 duration: motion.duration.base,
                 ease: motion.ease.out,
                 clearProps: "transform",
-                scrollTrigger: { trigger: el, start: "top 88%", once: true },
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 88%",
+                  toggleActions: "play none none none",
+                },
               },
             );
           });
@@ -56,7 +60,11 @@ export function useReveal<T extends HTMLElement>() {
                 ease: motion.ease.out,
                 stagger: motion.stagger,
                 clearProps: "transform",
-                scrollTrigger: { trigger: group, start: "top 85%", once: true },
+                scrollTrigger: {
+                  trigger: group,
+                  start: "top 85%",
+                  toggleActions: "play none none none",
+                },
               },
             );
           });
@@ -82,7 +90,11 @@ export function countUp(scope: HTMLElement | null) {
         onUpdate: () => {
           el.textContent = Math.round(o.v) + suffix;
         },
-        scrollTrigger: { trigger: el, start: "top 90%", once: true },
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
       });
     });
   });

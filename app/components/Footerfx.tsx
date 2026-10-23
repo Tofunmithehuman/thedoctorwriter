@@ -21,7 +21,7 @@ export default function FooterFx({ children }: { children: React.ReactNode }) {
             scrollTrigger: {
               trigger: ref.current,
               start: "top 85%",
-              once: true,
+              toggleActions: "play none none none",
             },
           })
           .from(q("[data-footer-item]"), {
@@ -79,7 +79,7 @@ export default function FooterFx({ children }: { children: React.ReactNode }) {
   return (
     <footer
       ref={ref}
-      className="relative isolate mt-3 w-full overflow-hidden rounded-t-[2rem] bg-linear-to-b from-brand-950 via-brand-950 to-brand-900 text-white"
+      className="relative isolate mt-3 w-full overflow-hidden rounded-t-4xl bg-linear-to-b from-brand-950 via-brand-950 to-brand-900 text-white"
     >
       {children}
     </footer>

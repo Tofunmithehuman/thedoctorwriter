@@ -1,3 +1,5 @@
+import DSH from "@/public/assets/Dr.SimoyanHome.png"
+
 const P =
   "https://images.squarespace-cdn.com/content/v1/6011c7c377c9ea623cf10599/";
 
@@ -18,7 +20,7 @@ export const SITE = {
 // Images currently hosted on your Squarespace site. Download them into /public when you move off Squarespace.
 export const IMG = {
   camera: P + "1615338647324-93UMK1SARKPBFLADZKO2/Olapeju-Simoyan-camera.jpg",
-  uke: P + "b6d2751b-27a5-4e33-ab0c-9b5555be2e33/uke+garden+close+up.jpeg",
+  uke: DSH,
   rochester:
     P +
     "1744315988033-QG0YYC34QW74UP5SL49D/the%2Bdoctor%2Bwriter%2B-%2Bolapeju%2Bsimoyan%2B1%2B-%2Brochester%2B25.jpg",
@@ -73,6 +75,7 @@ export const books: Book[] = [
     href: "https://www.amazon.com/dp/B0H2SJWL9V",
     tone: "from-brand-200 to-brand-600",
     ink: "text-brand-950",
+    image: "https://m.media-amazon.com/images/I/61ewhvHUP2L._SY342_.jpg",
   },
   {
     title: "Girls Become Doctors and Much More",
@@ -109,9 +112,11 @@ export const books: Book[] = [
     note: "A 25-day devotional",
     blurb:
       "Daily reflections, questions and activities based on the carols in I Played My Best for Him!, with mental health tips and wisdom pearls.",
-    href: "https://www.amazon.com/dp/B0FYTM1Y8N",
+    href: "https://shop.ingramspark.com/b/084?params=eubN6rjWx0h3woCH0N1fTv0p7pxxdd1tL421XSGKrWq",
     tone: "from-brand-400 to-brand-800",
     ink: "text-white",
+    image:
+      "https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x1000/sku/9798991657075.jpg?viewkey=40500f606396eed5bad0d6b384ccef72d08c26dd0934ec75c5614600779efef6",
   },
   {
     title: "Transformation & Recovery: Lessons from the Butterfly",
@@ -132,6 +137,7 @@ export const books: Book[] = [
     href: "https://www.amazon.com/dp/B0FB43V7WR",
     tone: "from-brand-800 to-brand-950",
     ink: "text-white",
+    image: "https://m.media-amazon.com/images/I/71gSujuOi9L._SY342_.jpg",
   },
   {
     title: "Navigating the Buprenorphine Maze",
@@ -142,6 +148,7 @@ export const books: Book[] = [
     href: "https://www.amazon.com/dp/B0H1MJ1JTK",
     tone: "from-brand-700 to-brand-900",
     ink: "text-white",
+    image: "https://m.media-amazon.com/images/I/61w8+WmE+cL._SY522_.jpg",
   },
   {
     title: "Living Foolproof! Wisdom for Daily Living",

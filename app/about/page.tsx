@@ -11,7 +11,7 @@ import Page from "@/app/components/Page";
 import Flower from "@/app/components/Flower";
 import HeroImage from "@/app/components/HeroImage";
 import { SITE, highlights, honors } from "@/app/lib/data";
-import DrSimoyan from "@/public/assets/Dr.Simoyan.webp";
+import DrSimoyan from "@/public/assets/Dr.Simoyan.png";
 
 export const metadata: Metadata = { title: "About" };
 

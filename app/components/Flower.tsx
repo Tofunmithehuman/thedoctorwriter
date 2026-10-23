@@ -38,7 +38,7 @@ export default function Flower({ tone = 0, delay = 0, className = "" }: Props) {
             scrollTrigger: {
               trigger: svg.current,
               start: "top 92%",
-              once: true,
+              toggleActions: "play none none none",
             },
           })
           .from(svg.current, {
