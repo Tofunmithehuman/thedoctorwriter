@@ -94,14 +94,14 @@ export default function BooksShowcase({
   const strip = (
     <div
       className={
-        full ? "-mx-6 md:-mx-10" : "-mx-6 min-w-0 md:-mx-10 lg:mx-0 lg:-mr-10"
+        full ? "-mx-6 md:-mx-10 ps-4" : "-mx-6 min-w-0 md:-mx-10 lg:mx-0 lg:-mr-10 ps-4"
       }
     >
       <div
         data-reveal-group
         role="group"
         aria-label="Book categories"
-        className={`flex snap-x gap-3 overflow-x-auto px-6 py-1 md:px-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+        className={`flex snap-x gap-3 overflow-x-auto px-6 py-1 md:px-10 scrollbar-none [&::-webkit-scrollbar]:hidden ${
           full ? "" : "lg:px-0 lg:pr-10"
         }`}
       >
@@ -122,7 +122,7 @@ export default function BooksShowcase({
                   : "bg-soft hover:bg-brand-100/70"
               }`}
             >
-              <div className="flex h-20 gap-2 overflow-hidden [mask-image:linear-gradient(to_bottom,black_45%,transparent)]">
+              <div className="flex h-20 gap-2 overflow-hidden mask-[linear-gradient(to_bottom,black_45%,transparent)]">
                 {covers.map((b) => (
                   <Cover
                     key={b.title}

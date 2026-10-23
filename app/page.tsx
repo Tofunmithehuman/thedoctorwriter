@@ -4,7 +4,7 @@ import Reveal from "@/app/components/Reveal";
 import Flower from "@/app/components/Flower";
 import HeroImage from "@/app/components/HeroImage";
 import BooksShowcase from "@/app/components/Booksshowcase";
-import DrSimoyan from "@/public/assets/Dr.Simoyan.webp";
+import DrSimoyan from "@/public/assets/DrSimoyan.png";
 
 const stats = [
   { label: "Books published", n: 10, suffix: "+" },
